@@ -5,9 +5,9 @@
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    sorteerBoekObj.data = JSON.parse(this.responseText);
-    sorteerBoekObj.voegJSdatumIn();
-    sorteerBoekObj.sorteren();
+    sorteerHorlogeObj.data = JSON.parse(this.responseText);
+    sorteerHorlogeObj.voegJSdatumIn();
+    sorteerHorlogeObj.sorteren();
   }
 }
 xmlhttp.open('GET', "horloges.json", true);
@@ -15,7 +15,7 @@ xmlhttp.send();
 
 // een tabelkop in markup uitvoeren uit een array
 const maakTabelKop = (arr) => {
-  let kop = "<table class='boekSelectie'><tr>";
+  let kop = "<table class='horlogeSelectie'><tr>";
   arr.forEach((item) => {
     kop += "<th>" + item + "</th>";
   });
@@ -76,7 +76,7 @@ const maakOpsomming = (array) => {
 // object dat de boeken uitvoert en sorteert
 // eigenschappen: data (sorteer)kenmerk
 // methods: sorteren() en uitvoeren()
-let sorteerBoekObj = {
+let sorteerHorlogeObj = {
   data: "", // komt van xmlhttp.onreadystatechange
 
   kenmerk: "model",
@@ -99,31 +99,40 @@ let sorteerBoekObj = {
 
   // de data in een tabel uitvoeren
   uitvoeren: function(data) {
+    // eerst de uitvoer leegmaken
+    document.getElementById('uitvoer').innerHTML = "";
     data.forEach(horloge => {
       let sectie = document.createElement('section');
       sectie.className = 'horloge';
 
       // cover maken
       let afbeelding = document.createElement('img');
-      afbeelding.className = 'horloge__cover';
+      afbeelding.className = 'horlogeSelectie__cover';
       afbeelding.setAttribute('src', horloge.cover)
       afbeelding.setAttribute('alt', horloge.model);
 
+      // model naam maken voor het horloge
+      let model = document.createElement('h3');
+      model.className = 'horloge__model';
+      model.textContent = horloge.model;
+
       // de element toevoegen
       sectie.appendChild(afbeelding);
+      sectie.appendChild(model);
+      document.getElementById('uitvoer').appendChild(sectie);
     });
   }
 }
 
 // keuze voorsoteer opties, hier is een fout
 document.getElementById('kenmerk').addEventListener('change', (e) => {
-  sorteerBoekObj.kenmerk = e.target.value;
-  sorteerBoekObj.sorteren();
+  sorteerHorlogeObj.kenmerk = e.target.value;
+  sorteerHorlogeObj.sorteren();
 });
 
 document.getElementsByName('oplopend').forEach((item) => {
   item.addEventListener('click', (e)=> {
-    sorteerBoekObj.oplopend = parseInt(e.target.value);
-    sorteerBoekObj.sorteren();
+    sorteerHorlogeObj.oplopend = parseInt(e.target.value);
+    sorteerHorlogeObj.sorteren();
   })
 })

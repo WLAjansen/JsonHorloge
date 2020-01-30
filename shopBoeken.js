@@ -2,9 +2,9 @@
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if(this.readyState==4 && this.status == 200) {
-    sorteerBoekObj.data = JSON.parse(this.responseText);
-    sorteerBoekObj.voegJSdatumIn();
-    sorteerBoekObj.sorteren();
+    sorteerHorlogeObj.data = JSON.parse(this.responseText);
+    sorteerHorlogeObj.voegJSdatumIn();
+    sorteerHorlogeObj.sorteren();
   }
 }
 xmlhttp.open('GET', "horloges.json", true);
