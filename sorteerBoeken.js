@@ -101,24 +101,34 @@ let sorteerHorlogeObj = {
   uitvoeren: function(data) {
     // eerst de uitvoer leegmaken
     document.getElementById('uitvoer').innerHTML = "";
-    data.forEach(horloge => {
+    data.forEach( horloge => {
       let sectie = document.createElement('section');
-      sectie.className = 'horloge';
+      sectie.className = 'horlogeSelectie';
+      // main element met alle info behalve prijs en afbeelding
+      let main = document.createElement('main');
+      main.className = 'horlogeSelectie__main';
 
       // cover maken
       let afbeelding = document.createElement('img');
       afbeelding.className = 'horlogeSelectie__cover';
-      afbeelding.setAttribute('src', horloge.cover)
+      afbeelding.setAttribute('src', horloge.cover);
       afbeelding.setAttribute('alt', horloge.model);
 
       // model naam maken voor het horloge
       let model = document.createElement('h3');
-      model.className = 'horloge__model';
+      model.className = 'horlogeSelectie__model';
       model.textContent = horloge.model;
+
+      // prijs toevoegen
+      let prijs = document.createElement('div');
+      prijs.className = 'horlogeSelectie__prijs';
+      prijs.textContent = '$ ' + horloge.prijs;
 
       // de element toevoegen
       sectie.appendChild(afbeelding);
       sectie.appendChild(model);
+      sectie.appendChild(main);
+      sectie.appendChild(prijs);
       document.getElementById('uitvoer').appendChild(sectie);
     });
   }

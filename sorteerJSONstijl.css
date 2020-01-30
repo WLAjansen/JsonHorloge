@@ -1,15 +1,26 @@
 
-.boekSelectie__cover {
+.horlogeSelectie__cover {
   max-width: 100px;
 }
 
-.boekSelectie__rij--accent {
+.horlogeSelectie__rij--accent {
   background-color: #def;
 }
-.boekSelectie__data-cel {
+.horlogeSelectie__data-cel {
   padding: 1em;
   vertical-align: top;
 }
-.boekSelectie__data-cel:nth-child(3) {
+.horlogeSelectie__data-cel:nth-child(3) {
   padding: 0;
+}
+
+.horlogeSelectie {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 1em;
+  margin-bottom: 1em;
+}
+
+.horlogeSelectie__prijs {
+  font-size: 2em;
 }

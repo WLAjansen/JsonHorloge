@@ -12,7 +12,7 @@ xmlhttp.send();
 
 // een tabelkop in markup uitvoeren uit een array
 const maakTabelKop = (arr) => {
-  let kop = "<table class='boekSelectie'><tr>";
+  let kop = "<table class='horlogeSelectie'><tr>";
   arr.forEach((item) => {
     kop += "<th>" + item + "</th>";
   });
