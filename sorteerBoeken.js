@@ -124,14 +124,20 @@ let sorteerHorlogeObj = {
       merk.className = 'horlogeSelectie__merken';
       merk.textContent = horloge.merk;
 
+      // overige info toevoegen
+      let overig = document.createElement('p');
+      overig.className = 'horlogeSelectie__overig';
+      overig.textContent = 'datum: '+horloge.uitgave+' | maat: '+horloge.maat+' | kleur: '+horloge.kleur+' | serienummer: '+horloge.ean;
+
       // prijs toevoegen
       let prijs = document.createElement('div');
       prijs.className = 'horlogeSelectie__prijs';
-      prijs.textContent = '$ ' + horloge.prijs;
+      prijs.textContent = horloge.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'});
 
       // de element toevoegen
       sectie.appendChild(afbeelding);
       sectie.appendChild(model);
+      main.appendChild(overig);
       sectie.appendChild(main);
       sectie.appendChild(prijs);
       sectie.appendChild(merk);
