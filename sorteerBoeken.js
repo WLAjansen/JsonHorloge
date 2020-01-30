@@ -136,11 +136,11 @@ let sorteerHorlogeObj = {
 
       // de element toevoegen
       sectie.appendChild(afbeelding);
-      sectie.appendChild(model);
+      main.appendChild(model);
+      main.appendChild(merk);
       main.appendChild(overig);
       sectie.appendChild(main);
       sectie.appendChild(prijs);
-      sectie.appendChild(merk);
       document.getElementById('uitvoer').appendChild(sectie);
     });
   }

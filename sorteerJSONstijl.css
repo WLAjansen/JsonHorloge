@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
+
 body {
-  font-family: sans-serif;
+  font-family: "Montserrat";
+}
+
+.select-button {
+  padding-bottom: 50px;
 }
 
 .horlogeSelectie__cover {
-  max-width: 100px;
+  max-width: 200px;
 }
 
 .horlogeSelectie__rij--accent {
