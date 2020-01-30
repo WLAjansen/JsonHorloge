@@ -119,6 +119,11 @@ let sorteerHorlogeObj = {
       model.className = 'horlogeSelectie__model';
       model.textContent = horloge.model;
 
+      // merk toevoegen
+      let merk = document.createElement('p');
+      merk.className = 'horlogeSelectie__merken';
+      merk.textContent = horloge.merk;
+
       // prijs toevoegen
       let prijs = document.createElement('div');
       prijs.className = 'horlogeSelectie__prijs';
@@ -129,6 +134,7 @@ let sorteerHorlogeObj = {
       sectie.appendChild(model);
       sectie.appendChild(main);
       sectie.appendChild(prijs);
+      sectie.appendChild(merk);
       document.getElementById('uitvoer').appendChild(sectie);
     });
   }
