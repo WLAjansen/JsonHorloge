@@ -1,3 +1,6 @@
+body {
+  font-family: sans-serif;
+}
 
 .horlogeSelectie__cover {
   max-width: 100px;
@@ -20,7 +23,40 @@
   grid-gap: 1em;
   margin-bottom: 1em;
 }
+.horlogeSelectie:nth-child(even) {
+  background-color: #eee;
+}
+.horlogeSelectie__main {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: .5em 0;
+}
+
+.horlogeSelectie__model {
+  margin: 0;
+}
+
+.horlogeSelectie__overig {
+  margin: 0;
+  font-size: .8em;
+  color: #444;
+}
 
 .horlogeSelectie__prijs {
   font-size: 2em;
+}
+
+@media screen and (min-width: 60em) {
+  #uitvoer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
+  }
+  .horlogeSelectie:nth-child(even) {
+    background-color: inherit;
+  }
+  .horlogeSelectie:nth-child(4n+2),
+  .horlogeSelectie:nth-child(4n+3) {
+    background-color: #eee;
+  }
 }
